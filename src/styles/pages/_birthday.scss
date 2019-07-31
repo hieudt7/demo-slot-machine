@@ -1,0 +1,739 @@
+.loading-birthday {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: #e12835;
+    background-image: radial-gradient(#e12835 20%, #be2633 50%, rgba(0, 0, 0, 0.5) 100%);
+    background-size: 120%;
+    background-position: center;
+    font-family: "Barlow Condensed", sans-serif;
+    z-index: 101;
+    animation: tighten-vinette ease-out 7000ms both;
+    pointer-events: none;
+
+    .images {
+        pointer-events: none;
+        height: 100vh;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        position: absolute;
+        opacity: .6;
+        z-index: 20;
+        background-size: cover;
+        background-position: center;
+        background-repeat: none;
+        background-image: url("https://cdn.vn.garenanow.com/web/fo4vn/events/12.png");
+    }
+
+    .wrapper {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .logo {
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .restart {
+            color: #fff;
+            margin-top: 20px;
+            font-size: 34px;
+            text-transform: uppercase;
+            letter-spacing: -.08rem;
+            transition: opacity 150ms linear;
+        }
+
+        .marvel,
+        .studios {
+            position: relative;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: -.2rem;
+            font-size: 80px;
+            margin: .05rem .05rem .5rem;
+            padding: 0 0.4rem;
+            display: inline-block;
+        }
+
+        .studios {
+            font-weight: 500;
+            letter-spacing: -.3rem;
+            -webkit-transform: translateX(-95px);
+            transform: translateX(-95px);
+
+            &:before,
+            &:after {
+                content: '';
+                display: block;
+                height: 3px;
+                position: absolute;
+                background-color: #fff;
+                display: block;
+                left: 0.4rem;
+                right: 0.4rem;
+            }
+
+            &:before {
+                top: 0;
+            }
+
+            &:after {
+                bottom: 0;
+            }
+        }
+
+        .marvel {
+            z-index: 10;
+            font-weight: 800;
+            -webkit-transform: translateX(95px);
+            transform: translateX(95px);
+
+            &:before {
+                z-index: -10;
+                content: '';
+                display: block;
+                background-color: #e12835;
+                border: solid rgba(255, 255, 255, 0.2) 1px;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+
+        &.run-animation {
+            -webkit-animation: shrink ease-out 4800ms forwards 600ms;
+            animation: shrink ease-out 4800ms forwards 600ms;
+
+            .marvel {
+                -webkit-transform: translateX(95px);
+                transform: translateX(95px);
+                -webkit-animation: slide-out-X 750ms ease forwards;
+                animation: slide-out-X 750ms ease forwards;
+            }
+
+            .studios {
+                -webkit-transform: translateX(-95px);
+                transform: translateX(-95px);
+                color: transparent;
+                -webkit-animation: slide-out-X 750ms ease forwards, show-text 300ms linear forwards 1500ms;
+                animation: slide-out-X 750ms ease forwards, show-text 300ms linear forwards 1500ms;
+
+                &:before {
+                    -webkit-transform: translateY(2.9rem);
+                    transform: translateY(2.9rem);
+                    -webkit-animation: slide-out-Y 300ms ease forwards 750ms;
+                    animation: slide-out-Y 300ms ease forwards 750ms;
+                }
+
+                &:after {
+                    -webkit-transform: translateY(-2.9rem);
+                    transform: translateY(-2.9rem);
+                    -webkit-animation: slide-out-Y 300ms ease forwards 750ms;
+                    animation: slide-out-Y 300ms ease forwards 750ms;
+                }
+            }
+
+            .restart {
+                opacity: 0;
+                -webkit-animation: fade-down 1200ms ease 3600ms forwards;
+                animation: fade-down 1200ms ease 3600ms forwards;
+            }
+
+            ~.images {
+                -webkit-animation: flicker-images 1500ms 2 steps(1, end), fade-out 4500ms forwards;
+                animation: flicker-images 1500ms 2 steps(1, end), fade-out 4500ms forwards;
+            }
+        }
+    }
+}
+
+@keyframes slide-out-X {
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-out-Y {
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes show-text {
+    100% {
+        color: #fff;
+    }
+}
+
+@keyframes shrink {
+    100% {
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+}
+
+@keyframes tighten-vinette {
+    50% {
+        background-size: 120%;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
+@keyframes fade-down {
+    0% {
+        -webkit-transform: translateY(-2rem);
+        transform: translateY(-2rem);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: .5;
+    }
+}
+
+@keyframes fade-out {
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes flicker-images {
+    0% {
+        background-image: url("https://cdn.vn.garenanow.com/web/fo4vn/events/01.jpg");
+    }
+
+    10% {
+        background-image: url("https://cdn.vn.garenanow.com/web/fo4vn/events/02.png");
+    }
+
+    20% {
+        background-image: url("https://cdn.vn.garenanow.com/web/fo4vn/events/03.png");
+    }
+
+    30% {
+        background-image: url("https://cdn.vn.garenanow.com/web/fo4vn/events/04.jpg");
+    }
+
+    40% {
+        background-image: url("https://cdn.vn.garenanow.com/web/fo4vn/events/05.jpg");
+    }
+
+    50% {
+        background-image: url("https://cdn.vn.garenanow.com/web/fo4vn/events/06.jpg");
+    }
+
+    60% {
+        background-image: url("https://cdn.vn.garenanow.com/web/fo4vn/events/07.png");
+    }
+
+    70% {
+        background-image: url("https://cdn.vn.garenanow.com/web/fo4vn/events/08.png");
+    }
+
+    80% {
+        background-image: url("https://cdn.vn.garenanow.com/web/fo4vn/events/09.png");
+    }
+
+    90% {
+        background-image: url("https://cdn.vn.garenanow.com/web/fo4vn/events/10.png");
+    }
+
+    100% {
+        background-image: url("https://cdn.vn.garenanow.com/web/fo4vn/events/11.png");
+    }
+}
+
+.wrap-box-dance {
+    max-width: 48rem;
+    display: inline-block;
+    position: relative;
+
+    .base {
+        position: relative;
+        perspective: 800px;
+        animation-name: dancing;
+        animation-duration: 4s;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+    }
+
+    .character {
+        position: absolute;
+        z-index: 2;
+    }
+
+    .b-title {
+        position: absolute;
+        z-index: 3;
+    }
+
+    .b-icon {
+        position: absolute;
+        z-index: 1;
+    }
+
+    &.box-1 {
+        .base {
+            animation-delay: 0s;
+            animation-duration: 2.5s;
+        }
+
+        .b-icon {
+            top: 8rem;
+            left: 6rem;
+            max-width: 34rem;
+            -webkit-backface-visibility: visible;
+            backface-visibility: visible;
+            animation-name: jelly;
+            animation-delay: 4s;
+            animation-duration: 3s;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+        }
+
+        .b-title {
+            bottom: 8rem;
+            right: 10rem;
+            max-width: 21rem;
+        }
+
+        .character {
+            left: 7rem;
+            bottom: 7rem;
+            max-width: 45rem;
+        }
+    }
+
+    &.box-2 {
+        .base {
+            animation-delay: 1ss;
+            animation-duration: 2.5s;
+        }
+
+        .b-icon {
+            top: 0rem;
+            left: 5rem;
+            max-width: 35rem;
+            animation: vibrate 0.5s linear infinite;
+        }
+
+        .b-title {
+            max-width: 27rem;
+            left: 10rem;
+            bottom: 7rem;
+
+        }
+
+        .character {
+            left: 8rem;
+            bottom: 4rem;
+            max-width: 40rem;
+        }
+    }
+
+    &.box-3 {
+        .base {
+            animation-delay: 1s;
+            animation-duration: 3s;
+        }
+
+        .b-icon {
+            top: 5rem;
+            left: 4rem;
+            max-width: 37rem;
+            animation-name: headshake;
+            animation-duration: 2s;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in;
+        }
+
+        .b-title {
+            max-width: 25rem;
+            left: 5rem;
+            bottom: 7rem;
+        }
+
+        .character {
+            left: 13rem;
+            bottom: 9rem;
+            max-width: 20rem;
+        }
+    }
+
+    &.box-4 {
+
+        // max-width: 54rem;
+        .base {
+            animation-delay: 1.5s;
+            animation-duration: 3s;
+        }
+
+        .b-icon {
+            top: 7rem;
+            left: 9rem;
+            max-width: 39rem;
+            animation-name: iconMove;
+            animation-duration: 3s;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in;
+        }
+
+        .b-title {
+            max-width: 25rem;
+            right: 5rem;
+            bottom: 7rem;
+        }
+
+        .character {
+            left: 11rem;
+            bottom: 9rem;
+            max-width: 28rem;
+        }
+    }
+}
+
+@keyframes dancing {
+
+    0%,
+    100% {
+        transform: rotate3d(2, 2, 0, 0deg);
+    }
+
+    50% {
+        transform: rotate3d(2, 2, 0, 13deg);
+    }
+}
+
+.cake-glich {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+@keyframes jelly {
+
+    0%,
+    11.1%,
+    100% {
+        transform: none;
+    }
+
+    22.2% {
+        transform: skewX(-8.5deg) skewY(-8.5deg);
+    }
+
+    33.3% {
+        transform: skewX(4.25deg) skewY(4.25deg);
+    }
+
+    44.4% {
+        transform: skewX(-2.125deg) skewY(-2.125deg);
+    }
+
+    55.5% {
+        transform: skewX(1.5625deg) skewY(1.5625deg);
+    }
+
+    66.6% {
+        transform: skewX(-.78125deg) skewY(-.78125deg);
+    }
+
+    77.7% {
+        transform: skewX(.39063deg) skewY(.39063deg);
+    }
+
+    88.8% {
+        transform: skewX(-.19531deg) skewY(-.19531deg);
+    }
+}
+
+@keyframes iconMove {
+    0% {
+        transform: translate(0, 3px)
+    }
+
+    50% {
+        transform: translate(0, -3px)
+    }
+
+    100% {
+        transform: translate(0, 3px)
+    }
+}
+
+@keyframes headshake {
+
+    0%,
+    11.1%,
+    100% {
+        transform: none;
+    }
+
+    22.2% {
+        transform: skewX(-8.5deg) skewY(-8.5deg);
+    }
+
+    33.3% {
+        transform: skewX(4.25deg) skewY(4.25deg) scale(1.1);
+    }
+
+    44.4% {
+        transform: skewX(-2.125deg) skewY(-2.125deg) scale(1.2);
+    }
+
+    55.5% {
+        transform: skewX(1.5625deg) skewY(1.5625deg) scale(1.2);
+    }
+
+    66.6% {
+        transform: skewX(-.78125deg) skewY(-.78125deg);
+    }
+
+    77.7% {
+        transform: skewX(.39063deg) skewY(.39063deg);
+    }
+
+    88.8% {
+        transform: skewX(-.19531deg) skewY(-.19531deg) scale(1);
+    }
+}
+
+@keyframes vibrate {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    20% {
+        transform: translate(0, -5px) scale(1.06);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+}
+
+.bd-bot {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 45rem;
+    margin: 0 auto;
+    animation-duration: 1.2s;
+    animation-delay: 13.5s;
+}
+
+.bd-left {
+    position: absolute;
+    left: 0;
+    bottom: 4rem;
+    width: 14rem;
+    animation-duration: 9s;
+    animation-delay: 2s;
+}
+
+.bd-date {
+    position: absolute;
+    left: 6rem;
+    bottom: 15rem;
+    width: 8.2rem;
+    animation-duration: 8.5s;
+    animation-delay: 2s;
+}
+
+.bd-1 {
+    position: absolute;
+    width: 6.2rem;
+    top: 6rem;
+    left: 15rem;
+    animation-delay: 12s;
+    animation-duration: 1s;
+    transform-origin: bottom;
+}
+
+.bd-t {
+    position: absolute;
+    width: 7.7rem;
+    top: 10rem;
+    left: 22rem;
+    animation-delay: 9s;
+    animation-duration: 1s;
+}
+
+.bd-u {
+    position: absolute;
+    width: 7.7rem;
+    top: 10rem;
+    left: 30rem;
+    transform: translateY(-140px) scaleY(1);
+    animation: toplong 2s linear;
+    animation-delay: 10s;
+    opacity: 0;
+    animation-fill-mode: both;
+}
+
+.bd-o {
+    position: absolute;
+    width: 9.4rem;
+    top: 7rem;
+    left: 38rem;
+    animation-delay: 9.5s;
+    animation-duration: 1s;
+}
+
+.bd-i {
+    position: absolute;
+    width: 2.4rem;
+    left: 48rem;
+    top: 11rem;
+    animation-delay: 10s;
+    animation-duration: 1.5s;
+
+}
+
+.bd-mark {
+    position: absolute;
+    width: 2.7rem;
+    left: 44rem;
+    top: 7rem;
+    animation-delay: 10s;
+    animation-duration: 1s;
+}
+
+.bd-fifa {
+    position: absolute;
+    width: 15.9rem;
+    left: 22rem;
+    top: 6rem;
+    animation-delay: 12s;
+    animation-duration: 1.5s;
+}
+
+.bd-fire {
+    position: absolute;
+    width: 2.6rem;
+    left: 18rem;
+    top: 1rem;
+    animation-delay: 12.5s;
+    animation-duration: 1s;
+
+    img {
+        animation-name: fire;
+        animation-duration: 2s;
+        animation-timing-function: ease-in;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        transform-origin: bottom;
+    }
+}
+
+@keyframes fire {
+
+    0%,
+    100% {
+        transform: skewX(2deg);
+    }
+
+    50% {
+        transform: skewX(-2deg);
+    }
+}
+
+@keyframes toplong {
+    0% {
+        opacity: 0;
+    }
+
+    10%,
+    40% {
+        transform: translateY(-140px) scaleY(1);
+    }
+
+    90% {
+        transform: translateY(-140px) scaleY(2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+.wrap-cake-base {
+    display: inline-block;
+    position: relative;
+
+    .base-cake {
+        opacity: 0;
+        visibility: hidden;
+
+    }
+
+    .c-cake {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .c-flag {
+        position: absolute;
+        top: -2%;
+        left: 0;
+        right: 0;
+        max-width: 70%;
+        margin: 0 auto;
+        animation-delay: 3s;
+        animation-duration: 1.5s;
+    }
+
+    .c-1st {
+        max-width: 40%;
+        bottom: 21%;
+        left: 30%;
+        position: absolute;
+    }
+    .c-deco{
+        position: absolute;
+        left: 9%;
+        bottom: 17%;
+        animation-delay: 1s;
+        animation-duration: 1s;
+    }
+    .c-card{
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: 50%;
+        max-width: 51%;
+        animation-delay: 2s;
+        animation-duration: 1.5s;
+    }
+}

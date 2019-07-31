@@ -1,0 +1,306 @@
+.happy-cake {
+    background-image: url('https://cdn.vn.garenanow.com/web/fo3/fo4/fo4-vietnam-player/images/bg.png');
+    background-size: cover;
+    position: relative;
+    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 7rem;
+
+    .title {
+        img {
+            max-width: 52.5rem;
+        }
+    }
+
+    .des {
+        font-size: 1.8rem;
+        font-weight: 400;
+        font-style: italic;
+        color: #fff;
+        max-width: 72rem;
+        margin: 0 auto;
+        text-transform: uppercase;
+        @include device-1(){
+            font-size: 16px;
+            max-width: 90%;
+        }
+    }
+
+    .cake {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 30px;
+        margin-top: 0.5rem;
+
+        .base-cake {
+            max-width: 77.2rem;
+        }
+
+        .btn-gift {
+            position: absolute;
+            left: -19rem;
+            bottom: 12rem;
+
+            img {
+                width: 32.5rem;
+            }
+            &:hover{
+                transform: scale(0.85);
+            }
+        }
+
+        .btn-end-time {
+            position: absolute;
+            right: -19rem;
+            bottom: 12rem;
+
+            img {
+                max-width: 32.4rem;
+            }
+
+            .wrap-btn {
+                display: inline-block;
+                position: relative;
+
+                .count-down {
+                    position: absolute;
+                    top: 0;
+                    height: 100%;
+                    width: 100%;
+                    left: 0;
+                    text-align: center;
+                    padding-left: 30px;
+
+                    span {
+                        background: linear-gradient(-90deg, #15d1a9 0, #a5e200 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        font-size: 2.4rem;
+                        font-weight: 500;
+                        text-transform: uppercase;
+                        font-style: italic;
+                        line-height: 5.3rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .wrap-progress {
+        position: relative;
+        display: inline-block;
+
+        .wrap-inner {
+            width: 575px;
+            left: 39px;
+            position: absolute;
+            height: 50px;
+            top: 0;
+            @include device-1(){
+                width: 100%;
+                left: 25px;
+            }
+        }
+
+        .pro-iner {
+            position: absolute;
+            background-color: #f72820;
+            height: 10px;
+            border-radius: 2px;
+            top: 11.5px;
+            @include device-1(){
+                top: 4.5px;
+            }
+        }   
+
+        .target {
+            position: absolute;
+            display: inline-block;
+            top: -33px;
+            text-align: center;
+            pointer-events: none;
+
+            .gift {
+                width: 51px;
+                height: 51px;
+                background-image: url('https://cdn.vn.garenanow.com/web/fo3/fo4/fo4-vietnam-player/images/give-gift.png');
+                background-size: cover;
+                margin: 0 auto;
+            }
+
+            span {
+                font-size: 16px;
+                font-weight: 400;
+                color: #fb2c2e;
+            }
+
+            &.target-1 {
+                left: 37%;
+                @include device-1(){
+                    left: 30%;
+                }
+            }
+
+            &.target-2 {
+                left: 97%;
+                @include device-1(){
+                    left: 77%;
+                }
+            }
+
+            &.active {
+                pointer-events: all;
+
+                .gift {
+                    background-image: url('https://cdn.vn.garenanow.com/web/fo3/fo4/fo4-vietnam-player/images/give-gift-act.png');
+                }
+
+                span {
+                    background: linear-gradient(-90deg, #15d1a9 0, #a5e200 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+.wrapper-tooltip {
+    padding: 0.5rem;
+
+    .title {
+        font-weight: bold;
+        font-size: 16px !important;
+        text-transform: uppercase;
+        line-height: 20px;
+    }
+
+    .detail {
+        font-size: 14px !important;
+        line-height: 2.0rem;
+        padding-bottom: .5rem;
+    }
+}
+
+.foot-left {
+    width: 25px;
+    height: 45px;
+    background-size: contain;
+    background-image: url('https://cdn.vn.garenanow.com/web/fo3/fo4/fo4-tournament-champion-2019/images/left-leg.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-right: 4px;
+    font-family: 'DINPro';
+    font-weight: 500;
+    font-size: 26px;
+    color: #fff;
+    position: relative;
+    transform: translateY(13px);
+
+    &.active {
+        background-image: url('https://cdn.vn.garenanow.com/web/fo3/fo4/fo4-tournament-champion-2019/images/left-leg-active.png');
+    }
+
+    span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-left: -2px;
+    }
+}
+
+.foot-right {
+    position: relative;
+    width: 25px;
+    height: 45px;
+    background-size: contain;
+    background-image: url('https://cdn.vn.garenanow.com/web/fo3/fo4/fo4-tournament-champion-2019/images/right-leg.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+    font-family: 'DINPro';
+    font-weight: 500;
+    font-size: 26px;
+    color: #fff;
+    transform: translateY(13px);
+
+    &.active {
+        background-image: url('https://cdn.vn.garenanow.com/web/fo3/fo4/fo4-tournament-champion-2019/images/right-leg-active.png');
+    }
+
+    span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-left: 2px;
+    }
+}
+
+.slide-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -70px;
+
+    @include device-1 {
+        width: 100%;
+        top: 100%;
+        right: 0;
+        position: relative;
+        text-align: center;
+        transform: translateY(0);
+    }
+
+    li {
+        @include device-1() {
+            width: 33.33%;
+            display: inline-block;
+            padding: 0 !important;
+        }
+
+        a {
+            display: block;
+            filter: grayscale(1);
+        }
+
+        &:nth-child(1) {
+            padding-left: 40px;
+        }
+
+        &:nth-child(2) {
+            padding-left: 30px;
+        }
+
+        &:nth-child(3) {
+            padding-left: 20px;
+        }
+
+        &:nth-child(4) {
+            padding-left: 10px;
+        }
+
+        &.active,
+        &:hover {
+            a {
+                filter: grayscale(0);
+            }
+        }
+    }
+}
+
+.cake-tooltip {
+    position: absolute;
+    top: 5rem;
+    display: inline-block;
+    width: 97px;
+    height: 34px;
+    background-image: url('/images/cake_tooltip.png');
+    background-size: cover;
+    line-height: 44px;
+    color: #fff;
+    text-align: center;
+    @include device-1(){
+        font-size: 14px;
+    }
+}
